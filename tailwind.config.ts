@@ -66,6 +66,9 @@ const config = {
         },
         red: {
           500: "#BD544C"
+        },
+        teal: {
+          500: "#1B8885"
         }
       },
       dropShadow: {
