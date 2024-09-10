@@ -1,4 +1,4 @@
-import { PauseIcon, PlayCircleIcon, SkipNextIcon, SkipPreviousIcon } from '@/icons';
+import { PauseIcon, PlayCircleIcon, SkipNextIcon, SkipPreviousIcon, StopIcon } from '@/icons';
 import { Button } from './ui/button';
 import { memo } from 'react';
 
@@ -8,6 +8,7 @@ interface AudioControlsProps {
   onTogglePlayPause: () => void;
   onSkipBackward: () => void;
   onSkipForward: () => void;
+  onStop: () => void;
   currentTime: number;
   duration: number;
 }
@@ -18,6 +19,7 @@ const AudioControls: React.FC<AudioControlsProps> = ({
   onTogglePlayPause,
   onSkipBackward,
   onSkipForward,
+  onStop,
   currentTime,
   duration,
 }) => {
@@ -55,6 +57,14 @@ const AudioControls: React.FC<AudioControlsProps> = ({
           aria-label="Skip 10 seconds forward"
         >
           <SkipNextIcon className="text-2xl" />
+        </Button>
+        <Button
+          variant="ghost"
+          className="h-max w-max rounded-full p-1"
+          onClick={onStop}
+          aria-label="Stop audio"
+        >
+          <StopIcon className="text-2xl" />
         </Button>
       </div>
       <div className="min-w-12 text-end text-xs text-neutral-500">{formatTime(duration)}</div>

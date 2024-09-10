@@ -17,3 +17,4 @@ export { default as SidebarHideIcon } from './sidebar-hide-icon.svg';
 export { default as SidebarShowIcon } from './sidebar-show-icon.svg';
 export { default as SkipNextIcon } from './skip-next-icon.svg';
 export { default as SkipPreviousIcon } from './skip-previous-icon.svg';
+export { default as StopIcon } from './stop-icon.svg';

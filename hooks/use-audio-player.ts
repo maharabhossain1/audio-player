@@ -12,6 +12,16 @@ export const useAudioPlayer = (audioUrl: string) => {
     const [isLoading, setIsLoading] = useState(true);
     const audioRef = useRef<HTMLAudioElement>(null);
 
+    const stopAudio = useCallback(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        audio.pause();
+        audio.currentTime = 0;
+        setIsPlaying(false);
+        setCurrentTime(0);
+    }, []);
+
     const togglePlayPause = useCallback(() => {
         const audio = audioRef.current;
         if (!audio) return;
@@ -131,5 +141,6 @@ export const useAudioPlayer = (audioUrl: string) => {
         handleVolumeChange,
         handlePlaybackRateChange,
         skipTime,
+        stopAudio,
     };
 };

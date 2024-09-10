@@ -27,6 +27,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioUrl }) => {
     handleVolumeChange,
     handlePlaybackRateChange,
     skipTime,
+    stopAudio,
   } = useAudioPlayer(audioUrl);
 
   return (
@@ -58,6 +59,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioUrl }) => {
         onSkipForward={() => skipTime(10)}
         currentTime={currentTime}
         duration={duration}
+        onStop={stopAudio}
       />
 
       <div className="flex items-center justify-between">
