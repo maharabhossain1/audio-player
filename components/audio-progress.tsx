@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback, memo } from 'react';
 
-interface CustomAudioProgressProps {
+interface AudioProgressProps {
   currentTime: number;
   duration: number;
   buffered: { start: number; end: number }[];
   onSeek: (value: number) => void;
 }
 
-const CustomAudioProgress: React.FC<CustomAudioProgressProps> = ({
+const AudioProgress: React.FC<AudioProgressProps> = ({
   currentTime,
   duration,
   buffered,
@@ -53,7 +53,6 @@ const CustomAudioProgress: React.FC<CustomAudioProgressProps> = ({
       document.addEventListener('mousemove', handleDrag);
       document.addEventListener('mouseup', handleDragEnd);
     }
-
     return () => {
       document.removeEventListener('mousemove', handleDrag);
       document.removeEventListener('mouseup', handleDragEnd);
@@ -104,4 +103,4 @@ const CustomAudioProgress: React.FC<CustomAudioProgressProps> = ({
   );
 };
 
-export default CustomAudioProgress;
+export default memo(AudioProgress);
